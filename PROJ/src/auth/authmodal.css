@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap');
+
+/* ===== OVERLAY ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+/* ===== MAIN MODAL CONTAINER ===== */
+.auth-modal {
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 800px;
+  height: 550px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease-out;
+  position: relative;
+}
+
+/* ===== LEFT SIDE IMAGE ===== */
+.auth-modal-image {
+  flex: 1;
+  background: url("/landing.jpg") center/cover no-repeat;
+  filter: brightness(0.85);
+}
+
+/* ===== RIGHT SIDE FORM ===== */
+.auth-modal-form {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* ===== TITLE ===== */
+.auth-modal-form h2 {
+  
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0B493A;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== INPUTS ===== */
+.auth-modal-form input {
+  font-family: "Kaisei Decol", serif;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.auth-modal-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* ===== BUTTON ===== */
+.submit-forgot {
+  background: #F3B659;
+  color: #0B493A;
+  margin-left: 100px;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.submt-sign {
+  background: #F3B659;
+  color: #0B493A;
+  margin-left: 135px;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.submit-log {
+  background: #F3B659;
+  color: #0B493A;
+  margin-left: 135px;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(180, 31, 12, 0.3);
+}
+
+/* ===== CLOSE BUTTON ===== */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: black;
+}
+
+/* ===== SWITCH TEXT ===== */
+.switch-text {
+  position: absolute;
+  top: 510px;
+  right: 110px;
+  font-size: 0.95rem;
+  color: #555;
+}
+.link {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+}
+.link:hover {
+  color: #0056b3;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .auth-modal {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .auth-modal-image {
+    height: 180px;
+  }
+
+  .switch-text {
+    position: static;
+    text-align: center;
+    margin-top: 0.8rem;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 15px;
+  }
+}
+.forgot-pass {
+  color: #007bff;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-bottom: 20px;
+}
+.forgot-pass:hover {
+  color: #0056b3;
+}
+
+
+/* === EMAIL SENT MODAL OVERLAY === */
+.emailsent-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* === MODAL BOX === */
+.emailsent-box {
+  background: #ffffff;
+  width: 380px;
+  padding: 28px 25px;
+  border-radius: 18px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  animation: popupSlide 0.3s ease;
+}
+
+/* ✅ Close button */
+.emailsent-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.emailsent-close:hover {
+  color: #111;
+}
+
+/* ✅ Check Icon */
+.emailsent-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+/* ✅ Title */
+.emailsent-title {
+  color: #651A1F;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* ✅ Text message */
+.emailsent-message {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* ✅ Button */
+.emailsent-btn {
+  width: 100%;
+  padding: 12px;
+  background: #651A1F;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.emailsent-btn:hover {
+  background: #3b0f12;
+  transform: translateY(-2px);
+}
+
+/* ✅ Animations */
+@keyframes popupSlide {
+  from {
+    transform: translateY(30px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+

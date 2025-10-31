@@ -1,0 +1,218 @@
+.profile-container {
+  margin-top: 50px;
+  padding: 40px 60px;
+  min-height: 100vh;
+  background: #f7f9fb;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2a3d66;
+}
+
+.subtext {
+  color: #6b7a99;
+  margin-top: 4px;
+}
+
+.add-btn {
+  background: #1b73e8;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add-btn:hover {
+  background: #135cb5;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 60px;
+  color: #6b7a99;
+}
+
+.empty-state {
+  text-align: center;
+  margin-top: 80px;
+}
+.empty-img {
+  width: 200px;
+  opacity: 0.7;
+}
+.empty-state button {
+  background: #1b73e8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.trip-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.trip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.trip-info h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #2a3d66;
+}
+.destination {
+  color: #6b7a99;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.trip-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.open-btn {
+  background: #34a853;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.open-btn:hover {
+  background: #2c8c45;
+}
+
+.delete-btn {
+  background: #ea4335;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.delete-btn:hover {
+  background: #c73127;
+}
+/* 🔹 Buttons container inside the header */
+.header-actions {
+  display: flex;
+  gap: 12px;
+
+}
+
+/* 🔹 Logout Button */
+.logout-btn {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.logout-btn:hover {
+  background-color: rgb(167, 0, 0);
+  transform: translateY(-2px);
+}
+
+/* 🔹 For consistency if needed */
+.add-btn {
+  background-color: #F3B659;
+  color: #0B493A;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.add-btn:hover {
+  background-color: #ffe656;
+  transform: translateY(-2px);
+}
+
+/* Optional: make header aligned better */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-card {
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  max-width: 450px;
+
+  /* NEW: make everything inline */
+  display: flex;
+
+  gap: 30px;
+}
+
+.location-card h3 {
+  color: #0B493A;
+  margin: 0; /* removes space below */
+  white-space: nowrap; /* prevents wrapping */
+}
+
+/* keep same display style for both states */
+.location-display,
+.location-edit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.location-edit input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.location-display button,
+.location-edit button {
+  background: #F3B659;
+  color: #0B493A;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.location-display button:hover,
+.location-edit button:hover {
+  background: #ffc773;
+}

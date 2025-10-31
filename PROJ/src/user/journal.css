@@ -1,0 +1,178 @@
+:root {
+  --forest-green: #2e6b45;
+  --accent-blue: #4fa3ff;
+  --accent-purple: #c45bff;
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Page Wrapper */
+.journal-wrapper {
+  display: flex;
+  gap: 24px;
+  padding: 100px 60px;
+  color: #1a1a1a;
+}
+
+/* LEFT / RIGHT Layout */
+.journal-left,
+.journal-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.journal-left {
+  width: 38%;
+}
+
+.journal-right {
+  width: 62%;
+}
+
+/* Scrollable Section */
+.scroll-area {
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.25);
+  border-radius: 6px;
+}
+
+/* Glass Card Design */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(1px);
+  border: 1px solid var(--glass-border);
+  padding: 18px 20px;
+  border-radius: 18px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  animation: fadeUp 0.25s ease-in-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Create Post */
+.new-post textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  background: rgba(255,255,255,0.85);
+  color: #222;
+  resize: none;
+}
+
+.new-post button {
+  margin-top: 12px;
+  width: 100%;
+  background: #F3B659;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  color: #000000;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.new-post button:hover {
+  background: #d2881a;
+  transform: translateY(-1px);
+}
+
+/* Radio Toggle */
+.visibility-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Post Cards */
+.journal-post {
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.header strong {
+  font-size: 15px;
+  color: #0e2a1c;
+}
+
+.header small {
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0e2a1c;
+  margin-bottom: 4px;
+}
+
+.post-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Tags */
+.visibility-tag {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.visibility-tag.public {
+  background: #e4f1ff;
+  color: var(--accent-blue);
+}
+
+.visibility-tag.private {
+  background: #f5e6ff;
+  color: var(--accent-purple);
+}
+
+/* Delete Button */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #cc0000;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 0.65;
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.empty-text {
+  text-align: center;
+  opacity: 0.7;
+  font-weight: 500;
+  margin-top: 12px;
+}

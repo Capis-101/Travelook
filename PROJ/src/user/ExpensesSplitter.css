@@ -1,0 +1,192 @@
+.splitter-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px;
+  background: #fafafa;
+  gap: 40px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.splitter-left {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.splitter-right {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-row label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-row input,
+.input-row select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.info-box {
+  background: #f3f3f3;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.expense-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expense-item.total {
+  font-size: 1.2rem;
+  color: #2b6cb0;
+}
+
+.back-btn {
+  margin-top: 20px;
+  background: #3182ce;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #2b6cb0;
+}
+.expense-actions {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.save-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+}
+
+.traveler-list {
+  height: 280px;
+  margin-top: 1rem;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ✅ Scrollable area when too many travelers */
+.traveler-scroll {
+  max-height: 180px; /* keeps layout stable */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.traveler-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.traveler-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6px;
+}
+
+.traveler-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.traveler-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.traveler-row input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.add-btn, .remove-btn {
+  border: none;
+  background: #0077ff;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #380a06;
+}
+
+.remove-btn {
+  background: #ff5f5f;
+}
+
+.remove-btn:hover {
+  background: #e65050;
+}
+
+.payer-section {
+  margin-top: 1.5rem;
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.payer-section h3 {
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.payer-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.payer-row select {
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+}

@@ -1,0 +1,93 @@
+/* === Container for all destination cards === */
+.destination-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 15px;
+  width: 100%;
+  scrollbar-width: none; /* Firefox */
+}
+.destination-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* === Each card === */
+.destination-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 280px;
+  border: solid black 2px;
+  border-radius: 16px;
+  background-color: #E5E2C2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* === Image container === */
+.card-image-container {
+  width: 100%;
+  height: 365px;
+  overflow: hidden;
+}
+
+/* === Image styling === */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Subtle zoom on hover */
+.destination-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* === Card content === */
+.card-content {
+  padding: 15px;
+}
+
+/* === Text styles === */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card-location {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.pin-icon {
+  margin-right: 6px;
+}
+
+/* === Budget / price tag === */
+.card-budget {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e88e5;
+}
