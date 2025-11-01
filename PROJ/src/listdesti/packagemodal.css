@@ -79,6 +79,7 @@
   transition: transform 0.3s ease;
 }
 
+
 .pkg-image-block img:hover {
   transform: scale(1.02);
 }
@@ -118,6 +119,7 @@
 .pkg-details {
   color: #333;
   line-height: 1.6;
+  text-align: left;
 }
 
 .pkg-details h3 {
@@ -125,8 +127,8 @@
   color: #00796b;
   font-size: 1.1rem;
   font-weight: 600;
-  border-left: 4px solid #00796b;
-  padding-left: 8px;
+  padding-left: 0;
+  justify-content: flex-start;
 }
 
 .pkg-details p {

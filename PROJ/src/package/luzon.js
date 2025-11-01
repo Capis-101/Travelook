@@ -9,7 +9,7 @@ const luzon = [
     packageName: "Batanes 4D3N Set A",
     accommodation: "Amboy Hometel",
     accommodationImage: "/luzon/accommodation/Amboy Hometel.webp",
-    spotImages: ["/luzon/spots/Amboy Hometel.jpg", "/luzon/Tinyan Viewpoint.jpg"],
+    spotImages: ["/luzon/spots/Amboy Hometel.webp", "/luzon/spots/Tinyan Viewpoint.jpg"],
     foodImage: "/luzon/dining/Hiro's Cafe.jpg",
     inclusions: [
       "4D3N accommodation at Amboy Hometel",
@@ -35,7 +35,7 @@ const luzon = [
     spotImages: [
       "/luzon/spots/Banaue Viewpoint.jpg",
       "/luzon/spots/banaue Museum.jpg",
-      "/luzon/spots/banaue local weaving shop.webp",
+      "/luzon/spots/banaue local weaving shop.webp"
     ],
     foodImage: "/luzon/dining/Batad Pension & Restaurant.jpg",
     inclusions: [
@@ -80,7 +80,7 @@ const luzon = [
     packageName: "Banaue–Sagada 3D2N Set A",
     accommodation: "Banaue View Inn",
     accommodationImage: "/luzon/accommodation/Banaue View Inn.jpg",
-    spotImages: ["/luzon/Banaue Viewpoint.jpg", "/luzon/banaue Museum.jpg"],
+    spotImages: ["/luzon/spots/Banaue Viewpoint.jpg", "/luzon/spots/banaue Museum.jpg"],
     foodImage: "/luzon/dining/Sagada Brew.webp",
     inclusions: ["3D2N stay", "Batad and Tappiya highlights", "Transport and meals"],
     expenses: { accommodation: 3300, food: 2400, activities: 2800, misc: 700 },
@@ -144,7 +144,7 @@ const luzon = [
     spotImages: [
       "/luzon/spots/Mines View Par.png",
       "/luzon/spots/Baguio Public Market.jpg",
-      "/luzon/spots/BenCab Museu.jpg",
+      "/luzon/spots/BenCab Museu.jpg"
     ],
     foodImage: "/luzon/dining/Cafe Yagam.jpg",
     inclusions: [

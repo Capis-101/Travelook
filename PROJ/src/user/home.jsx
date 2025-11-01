@@ -58,7 +58,7 @@ function Home() {
           style={{ cursor: "pointer" }}
         >
           <img
-            src={pkg.accommodationImage || pkg.spotImages?.[0] || "/images/default.jpg"}
+            src={pkg.spotImages?.[0] || pkg.accommodationImage || "/images/default.jpg"}
             alt={pkg.packageName}
           />
           <p>{pkg.packageName}</p>
