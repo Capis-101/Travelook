@@ -118,7 +118,7 @@ function PackageModal({ pkg, onClose }) {
 
         {/* ===== TRAVEL INFO ===== */}
         <div className="pkg-details">
-          <h3>🚗 Travel Details</h3>
+          <h3><span><img src="/public/seven.png" alt="" /></span> Travel Details</h3>
 
           <label htmlFor="transport">Mode of Transport:</label>
           <select
@@ -158,7 +158,7 @@ function PackageModal({ pkg, onClose }) {
           <div className="pkg-image-gallery">
             {pkg.accommodationImage && (
               <div className="pkg-image-block">
-                <p className="pkg-image-label">🏠 Accommodation</p>
+                <p className="pkg-image-label"> <span><img src="/public/four.png" alt="" /></span> Accommodation</p>
                 <img src={pkg.accommodationImage} alt="Accommodation" />
                 <p>{pkg.accommodation}</p>
               </div>
@@ -166,7 +166,7 @@ function PackageModal({ pkg, onClose }) {
 
             {pkg.spotImages && pkg.spotImages.length > 0 && (
               <div className="pkg-image-block">
-                <p className="pkg-image-label">📍 Tourist Spots</p>
+                <p className="pkg-image-label"> <span><img src="/public/two.png" alt="" /></span> Tourist Spots</p>
                 <div className="pkg-spot-gallery">
                   {pkg.spotImages.map((src, i) => (
                     <img key={i} src={src} alt={`Spot ${i + 1}`} />
@@ -177,7 +177,7 @@ function PackageModal({ pkg, onClose }) {
 
             {pkg.foodImage && (
               <div className="pkg-image-block">
-                <p className="pkg-image-label">🍴 Dining</p>
+                <p className="pkg-image-label"><span><img src="/public/three.png" alt="" /></span> Dining</p>
                 <img src={pkg.foodImage} alt="Food & Dining" />
               </div>
             )}
@@ -185,7 +185,7 @@ function PackageModal({ pkg, onClose }) {
         )}
 
         <div className="pkg-details">
-          <h3>📦 Included in Package</h3>
+          <h3><span><img src="/public/eight.png" alt="" /></span> Included in Package</h3>
           {pkg.inclusions && pkg.inclusions.length > 0 ? (
             <ul>
               {pkg.inclusions.map((item, i) => (
@@ -196,7 +196,7 @@ function PackageModal({ pkg, onClose }) {
             <p>No inclusions available.</p>
           )}
 
-          <h3>💰 Expenses</h3>
+          <h3> <span><img src="/public/one.png" alt="" /></span> Expenses</h3>
           <ul>
             <li>Accommodation: ₱{pkg.expenses?.accommodation || 0}</li>
             <li>Food: ₱{pkg.expenses?.food || 0}</li>
