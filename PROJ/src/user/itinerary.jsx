@@ -31,36 +31,27 @@ function Itinerary({ initialRegion }) {
       );
 
       // Auto-assign categories based on destination keywords
-      let category = "Others";
-      const dest = pkg.destination.toLowerCase();
-      if (
-        ["beach", "island", "boracay", "palawan", "siargao", "camiguin"].some((w) =>
-          dest.includes(w)
-        )
-      )
-        category = "Beach";
-      else if (["mountain", "bukidnon", "sagada"].some((w) => dest.includes(w)))
-        category = "Mountain";
-      else if (["city", "manila", "davao", "cebu"].some((w) => dest.includes(w)))
-        category = "City";
-      else if (
-        ["adventure", "zipline", "dahilayan", "waterfall"].some((w) =>
-          dest.includes(w)
-        )
-      )
-        category = "Adventure";
-      else if (
-        ["nature", "park", "lagoon", "view", "spring"].some((w) =>
-          dest.includes(w)
-        )
-      )
-        category = "Nature";
+      const dest = pkg?.destination?.toLowerCase() || "";
+let category = "Others";
 
-      return {
-        ...pkg,
-        price: totalCost,
-        category,
-      };
+if (["beach", "island", "boracay", "palawan", "siargao", "camiguin"].some(w => dest.includes(w))) {
+  category = "Beach";
+} else if (["mountain", "bukidnon", "sagada"].some(w => dest.includes(w))) {
+  category = "Mountain";
+} else if (["city", "manila", "davao", "cebu"].some(w => dest.includes(w))) {
+  category = "City";
+} else if (["adventure", "zipline", "dahilayan", "waterfall"].some(w => dest.includes(w))) {
+  category = "Adventure";
+} else if (["forest", "lake", "river", "park"].some(w => dest.includes(w))) {
+  category = "Nature";
+}
+
+return {
+  ...pkg,
+  price: totalCost,
+  category,
+};
+
     });
 
     setPackages(combined);
