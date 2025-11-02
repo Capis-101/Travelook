@@ -109,7 +109,7 @@ function ExpenseSplitter() {
   return (
     <div className="splitter-horizontal">
       <div className="splitter-left">
-        <h1>💸 Expense Splitter</h1>
+        <h1><img src="/public/one.png" alt=""  className='iconix'/> Expense Splitter</h1>
         <p>
           <strong>From:</strong> {userLocation} → <strong>{selectedPackage?.destination}</strong>
         </p>
@@ -172,7 +172,7 @@ function ExpenseSplitter() {
       </div>
 
       <div className="splitter-right">
-        <h2>🧾 Expense Breakdown</h2>
+        <h2><img src="/public/one.png" alt=""  className='iconix'/> Expense Breakdown</h2>
         <div className="expense-grid">
           <div className="expense-item"><span>Commute</span><span>₱{commuteCost.toFixed(2)}</span></div>
           <div className="expense-item"><span>Accommodation</span><span>₱{accommodation.toFixed(2)}</span></div>
@@ -192,7 +192,7 @@ function ExpenseSplitter() {
 
         {/* === Who Pays Section === */}
         <div className="payer-section">
-          <h3>💬 Who pays for what?</h3>
+          <h3><img src="/public/six.png" alt=""  className='iconix'/> Who pays for what?</h3>
           {Object.entries(payerAssignments).map(([key, value]) => (
             <div key={key} className="payer-row">
               <label>{key.charAt(0).toUpperCase() + key.slice(1)}:</label>
@@ -211,7 +211,7 @@ function ExpenseSplitter() {
 
         <div className="expense-actions">
           <button className="save-btn" onClick={handleSaveTrip}>
-            💾 Save Trip to Profile
+            Save Trip to Profile
           </button>
         </div>
       </div>

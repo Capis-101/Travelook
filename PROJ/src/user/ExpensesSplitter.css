@@ -36,6 +36,9 @@
   font-weight: bold;
   margin-bottom: 5px;
 }
+.iconix {
+  width: 35px;
+}
 
 .input-row input,
 .input-row select {
@@ -81,13 +84,13 @@
   background: #2b6cb0;
 }
 .expense-actions {
-  margin-top: 1.5rem;
+  margin-top: 10px;
   text-align: center;
 }
 
 .save-btn {
-  background-color: #4caf50;
-  color: white;
+  background-color: #F3B659;
+  color: black;
   padding: 10px 18px;
   border: none;
   border-radius: 10px;
@@ -97,7 +100,7 @@
 }
 
 .save-btn:hover {
-  background-color: #45a049;
+  background-color: #ffc978;
 }
 
 .traveler-list {
@@ -147,7 +150,7 @@
 
 .add-btn, .remove-btn {
   border: none;
-  background: #0077ff;
+  background: #F3B659;
   color: white;
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
@@ -156,7 +159,7 @@
 }
 
 .add-btn:hover {
-  background: #380a06;
+  background: #F3B659;
 }
 
 .remove-btn {
@@ -168,7 +171,7 @@
 }
 
 .payer-section {
-  margin-top: 1.5rem;
+  margin-top: 10px;
   background: #fafafa;
   padding: 1rem;
   border-radius: 12px;
