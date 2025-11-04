@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import packagelist from '../../public/packagelist.js';
 import LoginModal from '../auth/loginmodal.jsx';
 import SignupModal from '../auth/signup.jsx';
@@ -14,6 +14,24 @@ function LandingPage() {
     const [showSignup, setShowSignup] = useState(false);
     const [showForgot, setShowForgot] = useState(false);
     const [showEmailSent, setShowEmailSent] = useState(false); // ✅
+
+    const images =[
+        "/visayas/spots/Balicasag.jpg",
+        "/visayas/spots/Chocolate Hills.jpg",
+        "/visayas/spots/Cambugahay Falls.jpg",
+        "/mindanao/spots/White Island.jpg",
+        "/mindanao/spots/Kaamulan Grounds.jpg"
+    ];
+
+        const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 4000); // change every 4 seconds
+        return () => clearInterval(interval);
+    }, []);
+
 
     const onSelect = (dest) => {
         setShowSignup(true);
@@ -87,7 +105,7 @@ function LandingPage() {
 
             {/* ==== WELCOME ==== */}
             <div className="Welcome">
-                <img src="/landing.jpg" alt="ERROR" />
+                <img src={images[currentImage]} alt="Travel" className="fade-image" />
                 <div className="landingTXT">
                     <h1>"Your Trip. Your Story. Your Way."</h1>
                     <p>Plan freely, travel smartly, and share your adventures beautifully.</p>

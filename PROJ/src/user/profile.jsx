@@ -1,9 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { collection, addDoc, getDocs, doc, deleteDoc, getDoc, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  deleteDoc,
+  getDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { db, auth } from "../firebaseconfig.js";
-import Nav from "./nav.jsx";
+import Nav from "../user/nav.jsx";
 import "./profile.css";
 import TripModal from "../listdesti/savedmodal.jsx";
 
@@ -17,12 +25,13 @@ function Profile() {
 
   const uid = auth?.currentUser?.uid || "guest";
 
-  // ⚙️ User location states
+  // ⚙️ User info states
+  const [username, setUsername] = useState("");
   const [userLocation, setUserLocation] = useState("Unknown");
   const [editingLocation, setEditingLocation] = useState(false);
   const [newLocation, setNewLocation] = useState("");
 
-  // ⚙️ Fetch user info (location)
+  // ⚙️ Fetch user info (username + location)
   useEffect(() => {
     const fetchUserInfo = async () => {
       if (!uid || uid === "guest") return;
@@ -30,7 +39,11 @@ function Profile() {
         const userRef = doc(db, "users", uid);
         const userSnap = await getDoc(userRef);
         if (userSnap.exists()) {
-          setUserLocation(userSnap.data().location || "Unknown");
+          const data = userSnap.data();
+          setUserLocation(data.location || "Unknown");
+          setUsername(data.username || auth.currentUser?.displayName || "Traveler");
+        } else {
+          setUsername(auth.currentUser?.displayName || "Traveler");
         }
       } catch (err) {
         console.error("Failed to fetch user info:", err);
@@ -57,30 +70,30 @@ function Profile() {
 
     fetchSaved();
   }, [uid]);
+
   // 🔹 Auto-save previewed trip from splitter
-useEffect(() => {
-  if (!preview || hasSavedRef.current) return;
-  hasSavedRef.current = true;
+  useEffect(() => {
+    if (!preview || hasSavedRef.current) return;
+    hasSavedRef.current = true;
 
-  (async () => {
-    try {
-      const colRef = collection(db, "users", uid, "itineraries");
-      await addDoc(colRef, {
-        ...preview,
-        createdAt: new Date().toISOString(),
-      });
+    (async () => {
+      try {
+        const colRef = collection(db, "users", uid, "itineraries");
+        await addDoc(colRef, {
+          ...preview,
+          createdAt: new Date().toISOString(),
+        });
 
-      const snap = await getDocs(colRef);
-      setSavedItineraries(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
+        const snap = await getDocs(colRef);
+        setSavedItineraries(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
 
-      // ✅ Clear location.state after saving
-      window.history.replaceState({}, "");
-    } catch (err) {
-      console.error("Auto-save preview failed:", err);
-    }
-  })();
-}, [preview, uid]);
-
+        // ✅ Clear location.state after saving
+        window.history.replaceState({}, "");
+      } catch (err) {
+        console.error("Auto-save preview failed:", err);
+      }
+    })();
+  }, [preview, uid]);
 
   // 🔹 Delete trip
   const handleDelete = async (docId) => {
@@ -120,12 +133,17 @@ useEffect(() => {
       <div className="profile-container">
         <header className="profile-header">
           <div>
-            <h1>Welcome Back, Traveler 🌍</h1>
-            <p className="subtext">Manage and revisit your saved itineraries here.</p>
+            <h1>Welcome Back, {username || "Traveler"} 🌍</h1>
+            <p className="subtext">
+              Manage and revisit your saved itineraries here.
+            </p>
           </div>
-          
-        <div className="header-actions">
-            <button className="add-btn" onClick={() => window.location.href = "/itinerary"}>
+
+          <div className="header-actions">
+            <button
+              className="add-btn"
+              onClick={() => (window.location.href = "/itinerary")}
+            >
               + New Itinerary
             </button>
             <button className="logout-btn" onClick={handleLogout}>
@@ -148,16 +166,13 @@ useEffect(() => {
             </div>
           ) : (
             <div className="location-display">
-              <p><strong>Current Location:</strong> {userLocation}</p>
+              <p>
+                <strong>Current Location:</strong> {userLocation}
+              </p>
               <button onClick={() => setEditingLocation(true)}>Change</button>
             </div>
           )}
         </div>
-
-
-        
-
-
 
         {loading ? (
           <div className="loading">Fetching your adventures...</div>
@@ -173,15 +188,27 @@ useEffect(() => {
                 <div className="trip-info">
                   <h3>{it.packageName}</h3>
                   <p className="destination">{it.destination}</p>
-                  <p><b>Total:</b> ₱{Math.round(it.total).toLocaleString()}</p>
-                  <p><b>Per Person:</b> ₱{Number(it.perPerson).toLocaleString()}</p>
-                  <p><b>Days:</b> {it.days} • <b>Travelers:</b> {it.travelers}</p>
+                  <p>
+                    <b>Total:</b> ₱{Math.round(it.total).toLocaleString()}
+                  </p>
+                  <p>
+                    <b>Per Person:</b> ₱{Number(it.perPerson).toLocaleString()}
+                  </p>
+                  <p>
+                    <b>Days:</b> {it.days} • <b>Travelers:</b> {it.travelers}
+                  </p>
                 </div>
                 <div className="trip-actions">
-                  <button className="open-btn" onClick={() => setSelectedTrip(it)}>
+                  <button
+                    className="open-btn"
+                    onClick={() => setSelectedTrip(it)}
+                  >
                     Open
                   </button>
-                  <button className="delete-btn" onClick={() => handleDelete(it.id)}>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(it.id)}
+                  >
                     Delete
                   </button>
                 </div>
@@ -192,10 +219,7 @@ useEffect(() => {
       </div>
 
       {selectedTrip && (
-        <TripModal
-          trip={selectedTrip}
-          onClose={() => setSelectedTrip(null)}
-        />
+        <TripModal trip={selectedTrip} onClose={() => setSelectedTrip(null)} />
       )}
     </>
   );

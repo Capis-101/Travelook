@@ -28,7 +28,7 @@
 /* ===== LEFT SIDE IMAGE ===== */
 .auth-modal-image {
   flex: 1;
-  background: url("/landing.jpg") center/cover no-repeat;
+  background: url("/visayas/spots/Balicasag.jpg") center/cover no-repeat;
   filter: brightness(0.85);
 }
 

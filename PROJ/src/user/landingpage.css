@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
   font-family: 'Copperplate Gothic Bold';
   src: url('./fonts/CopperplateGothicBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 
 /* === HERO / WELCOME SECTION === */
 .Welcome {
@@ -93,15 +96,15 @@
 
 .aboutleft h1 {
   font-size: 2.8rem;
-  font-weight: 300;
-  font-family: 'Copperplate Gothic Bold', Copperplate, fantasy;
+  font-weight: 750;
+  font-family: "Raleway", sans-serif;
 
   color: #F3B659;
   margin-bottom: 10px;
 }
 
 .aboutleft p {
-  font-family: 'Hammersmith One', sans-serif;
+  font-family: "Dela Gothic One", sans-serif;
   font-size: 1.15rem;
   color: #0B493A;
   line-height: 1.7;
@@ -228,7 +231,7 @@
 
 .topdestination-header h1 {
   font-size: 2.8rem;
-  font-family: 'Karma', serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   color: #F3B659; /* elegant dark greenish tone */
   margin-bottom: 8px;
@@ -276,16 +279,17 @@
 }
 
 .why-header h2 {
-  font-family: 'Copperplate Gothic Bold', Copperplate, fantasy;
+  font-family: "Raleway", sans-serif;
   font-size: 40px;
-  font-weight: 300;
+  font-weight: 800;
   color: #F3B659;
   margin-bottom: 10px;
 }
 
 .why-header p {
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
+  font-weight: 500;
   color: #555;
   max-width: 700px;
   margin: 0 auto 50px auto;

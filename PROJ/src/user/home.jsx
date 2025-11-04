@@ -15,6 +15,23 @@ function Home() {
   const [selectedPackage, setSelectedPackage] = useState(null); // modal state
   const [userLocation, setUserLocation] = useState("Bulacan"); // example location
 
+  const images =[
+        "/visayas/spots/Balicasag.jpg",
+        "/visayas/spots/Chocolate Hills.jpg",
+        "/visayas/spots/Cambugahay Falls.jpg",
+        "/mindanao/spots/White Island.jpg",
+        "/mindanao/spots/Kaamulan Grounds.jpg"
+    ];
+
+        const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 4000); // change every 4 seconds
+        return () => clearInterval(interval);
+    }, []);
+
   useEffect(() => {
     const q = query(
       collection(db, "journalPosts"),
@@ -36,7 +53,7 @@ function Home() {
 
       {/* ==== WELCOME ==== */}
       <div className="home-welcome">
-        <img src="/landing.jpg" alt="ERROR" />
+        <img src={images[currentImage]} alt="Travel" className="fade-image" />
         <div className="home-landingTXT">
           <h1>Your Trip. Your Story. Your Way.</h1>
           <p>Plan freely, travel smartly, and share your adventures beautifully.</p>

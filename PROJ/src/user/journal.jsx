@@ -10,6 +10,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { db, auth } from "../firebaseconfig.js";
+import { onAuthStateChanged } from "firebase/auth";
 import Nav from "./nav.jsx";
 import "./journal.css";
 import Footer from "../user/footer.jsx";
@@ -19,20 +20,36 @@ function Journal() {
   const [isPublic, setIsPublic] = useState(true);
   const [publicPosts, setPublicPosts] = useState([]);
   const [privatePosts, setPrivatePosts] = useState([]);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const user = auth.currentUser;
-
+  // ✅ Watch for user login/logout
   useEffect(() => {
+    const unsubAuth = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return unsubAuth;
+  }, []);
+
+  // ✅ Load posts only when user is known
+  useEffect(() => {
+    if (loading) return;
+
     const q = query(collection(db, "journalPosts"), orderBy("timestamp", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const all = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
       setPublicPosts(all.filter((p) => p.isPublic));
-      setPrivatePosts(all.filter((p) => !p.isPublic && p.uid === user?.uid));
+      if (user) {
+        setPrivatePosts(all.filter((p) => !p.isPublic && p.uid === user.uid));
+      } else {
+        setPrivatePosts([]);
+      }
     });
 
     return unsubscribe;
-  }, [user]);
+  }, [user, loading]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,6 +72,16 @@ function Journal() {
       await deleteDoc(doc(db, "journalPosts", id));
     }
   };
+
+  if (loading) {
+    return (
+      <>
+        <Nav />
+        <div className="loading-text">Loading your journal...</div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -162,7 +189,7 @@ function Journal() {
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

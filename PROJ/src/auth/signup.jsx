@@ -11,7 +11,7 @@ function SignupModal({ onClose, onSwitch }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [location, setLocation] = useState(""); // ✅ new state
+  const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -25,19 +25,24 @@ function SignupModal({ onClose, onSwitch }) {
     setLoading(true);
 
     try {
+      // ✅ Create user account in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(userCredential.user, { displayName: username });
+      const user = userCredential.user;
 
-      // ✅ Save user data (with location) to Firestore
-      await setDoc(doc(db, "users", userCredential.user.uid), {
+      // ✅ Update Firebase Auth profile (for displayName)
+      await updateProfile(user, { displayName: username });
+
+      // ✅ Save user data to Firestore
+      await setDoc(doc(db, "users", user.uid), {
         username,
         email,
         location,
-        createdAt: new Date(),
+        createdAt: new Date().toISOString(),
       });
 
+      alert("✅ Account created successfully!");
       onClose();
-      navigate("/home");
+      navigate("/home"); // redirect after signup
     } catch (err) {
       alert("❌ " + err.message);
     } finally {
@@ -54,7 +59,9 @@ function SignupModal({ onClose, onSwitch }) {
           <div className="auth-modal-image"></div>
 
           <div className="auth-modal-form">
-            <button className="close-btn" onClick={onClose}>×</button>
+            <button className="close-btn" onClick={onClose}>
+              ×
+            </button>
 
             <p className="switch-text">
               Already have an account?{" "}
@@ -100,7 +107,9 @@ function SignupModal({ onClose, onSwitch }) {
                 required
               />
 
-              <button className="submt-sign" type="submit">Sign Up</button>
+              <button className="submt-sign" type="submit">
+                Sign Up
+              </button>
             </form>
           </div>
         </div>

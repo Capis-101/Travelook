@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
   font-family: 'Copperplate Gothic Bold';
   src: url('./fonts/CopperplateGothicBold.ttf') format('truetype');
@@ -60,9 +61,12 @@
 }
 
 .home-section h4 {
+  font-family: "Raleway", sans-serif;
+  color: #F3B659;
   text-align: left;
   margin-bottom: 15px;
   font-weight: 600;
+  font-size: 25px;
 }
 
 .package-row {
@@ -140,8 +144,8 @@
 }
 
 .traveler-journals h2 {
-  font-family: 'Copperplate Gothic Bold', Copperplate, fantasy;
-  font-weight: 1;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
   color: #F3B659;
   font-size: 3rem;
   margin-bottom: 0.5rem;
